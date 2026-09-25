@@ -92,7 +92,7 @@ public class Lab1 {
     }
 
     public void runTask1_6() {
-        System.out.print("Введите символ: ");
+        System.out.print("Введите символ из английского алфавита: ");
         String s = scanner.nextLine().trim();
         if (s.length() != 1) {
             System.out.println("Ошибка: нужно ввести ровно один символ.");
@@ -754,6 +754,3 @@ public class Lab1 {
         scanner.nextLine();
     }
 }
-
-
-
