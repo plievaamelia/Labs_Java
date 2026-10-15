@@ -11,11 +11,10 @@ public class Lab1 {
 
     public void run() {
         String input;
-        System.out.println("Справка:");
         System.out.println("Формат ввода задач - задание.задача");
         System.out.println("0 - выход");
         while (true) {
-            System.out.println("Введите номер задачи: ");
+            System.out.println("Введите номер задачи (0 - для выхода): ");
             input = scanner.nextLine().trim();
             switch (input) {
                 case "0":
@@ -372,7 +371,7 @@ public class Lab1 {
         }
     }
 
-    public void runTask2_10(){
+    public void runTask2_10() {
         System.out.print("Введите день недели с маленькой буквы: ");
         String x = scanner.nextLine();
         System.out.print(printDays(x) + "\n");
