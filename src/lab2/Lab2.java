@@ -158,7 +158,7 @@ public class Lab2 {
                 }
                 cities[i] = new City(name);
             }
-            System.out.println("\nЗадайте пути. Формат: откуда, куда, цена.");
+            System.out.println("\nЗадайте пути. Формат: откуда (номер города), куда (номер города), цена.");
             while (true) {
                 System.out.print("Откуда (0 — выход): ");
                 while (!scanner.hasNextInt()) {
