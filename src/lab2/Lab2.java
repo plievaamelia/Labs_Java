@@ -48,7 +48,7 @@ public class Lab2 {
         String name = scanner.nextLine();
         System.out.print("Введите рост (целое число): ");
         while (!scanner.hasNextInt()) {
-            System.out.println("Это не целое число!");
+            System.out.print("Это не целое число! Повторите: ");
             scanner.next();
         }
         int height = scanner.nextInt();
@@ -108,18 +108,19 @@ public class Lab2 {
         Name person = new Name(surname, name, lastname);
         System.out.print("Введите рост (целое число): ");
         while (!scanner.hasNextInt()) {
-            System.out.println("Это не целое число!");
+            System.out.print("Это не целое число! Повторите: ");
             scanner.next();
         }
         int height = scanner.nextInt();
+        scanner.nextLine();
         PersonName person_name = new PersonName(person, height);
         System.out.println(person_name);
         scanner.nextLine();
     }
 
     public void runTask3_3() {
-        System.out.print("Хотите ввести вручную(1) или посмотреть готовый пример(2)? ");
-        System.out.print("\nВаш выбор: ");
+        System.out.println("Хотите ввести вручную(1) или посмотреть готовый пример(2)?");
+        System.out.print("Ваш выбор: ");
         int choice;
         while (true) {
             while (!scanner.hasNextInt()) {
@@ -133,20 +134,16 @@ public class Lab2 {
         }
         if (choice == 1) {
             System.out.print("Сколько городов? (от 1 до 20): ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Это не целое число!");
-                scanner.next();
-            }
-            int n = scanner.nextInt();
-            scanner.nextLine();
-            while (n < 1 || n > 20) {
-                System.out.print("Число должно быть от 1 до 20, повторите: ");
+            int n;
+            while (true) {
                 while (!scanner.hasNextInt()) {
-                    System.out.println("Это не целое число!");
+                    System.out.print("Это не целое число! Повторите: ");
                     scanner.next();
                 }
                 n = scanner.nextInt();
                 scanner.nextLine();
+                if (n >= 1 && n <= 20) break;
+                System.out.print("Число должно быть от 1 до 20, повторите: ");
             }
             City[] cities = new City[n];
             for (int i = 0; i < n; i++) {
@@ -161,53 +158,41 @@ public class Lab2 {
             System.out.println("\nЗадайте пути. Формат: откуда (номер города), куда (номер города), цена.");
             while (true) {
                 System.out.print("Откуда (0 — выход): ");
-                while (!scanner.hasNextInt()) {
-                    System.out.println("Это не целое число!");
-                    scanner.next();
-                }
-                int from = scanner.nextInt();
-                scanner.nextLine();
-                if (from == 0) break;
-                while (from < 1 || from > n) {
-                    System.out.print("Число должно быть от 1 до " + n + ", повторите: ");
+                int from;
+                while (true) {
                     while (!scanner.hasNextInt()) {
-                        System.out.println("Это не целое число!");
+                        System.out.print("Это не целое число! Повторите: ");
                         scanner.next();
                     }
                     from = scanner.nextInt();
                     scanner.nextLine();
+                    if (from >= 0 && from <= n) break;
+                    System.out.print("Число должно быть от 0 до " + n + ", повторите: ");
                 }
+                if (from == 0) break;
                 System.out.print("Куда: ");
-                while (!scanner.hasNextInt()) {
-                    System.out.println("Это не целое число!");
-                    scanner.next();
-                }
-                int to = scanner.nextInt();
-                scanner.nextLine();
-                while (to < 1 || to > n) {
-                    System.out.print("Число должно быть от 1 до " + n + ", повторите: ");
+                int to;
+                while (true) {
                     while (!scanner.hasNextInt()) {
-                        System.out.println("Это не целое число!");
+                        System.out.print("Это не целое число! Повторите: ");
                         scanner.next();
                     }
                     to = scanner.nextInt();
                     scanner.nextLine();
+                    if (to >= 1 && to <= n) break;
+                    System.out.print("Число должно быть от 1 до " + n + ", повторите: ");
                 }
                 System.out.print("Цена (натуральное число): ");
-                while (!scanner.hasNextInt()) {
-                    System.out.println("Это не целое число!");
-                    scanner.next();
-                }
-                int cost = scanner.nextInt();
-                scanner.nextLine();
-                while (cost < 1) {
-                    System.out.print("Цена должна быть натуральны числом от 1, повторите: ");
+                int cost;
+                while (true) {
                     while (!scanner.hasNextInt()) {
-                        System.out.println("Это не целое число!");
+                        System.out.print("Это не целое число! Повторите: ");
                         scanner.next();
                     }
                     cost = scanner.nextInt();
                     scanner.nextLine();
+                    if (cost >= 1) break;
+                    System.out.print("Цена должна быть натуральным числом от 1, повторите: ");
                 }
                 cities[from - 1].addPath(cities[to - 1], cost);
             }
@@ -249,8 +234,8 @@ public class Lab2 {
     }
 
     public void runTask4_8() {
-        System.out.print("Хотите ввести вручную(1) или посмотреть готовый пример(2)? ");
-        System.out.print("\nВаш выбор: ");
+        System.out.println("Хотите ввести вручную(1) или посмотреть готовый пример(2)?");
+        System.out.print("Ваш выбор: ");
         int choice;
         while (true) {
             while (!scanner.hasNextInt()) {
@@ -263,53 +248,55 @@ public class Lab2 {
             System.out.print("Введите 1 или 2: ");
         }
         if (choice == 1) {
-            System.out.println("Введите название города ");
+            System.out.print("\nВведите название города ");
             String name1 = scanner.nextLine().trim();
             City name_only = new City(name1);
             System.out.println("Город, созданный только с именем " + name_only);
-            System.out.println("Введите название города ");
+            System.out.print("\nВведите название города ");
             String name2 = scanner.nextLine().trim();
-            System.out.println("Введите связанные города ");
-            System.out.println("Введите название первого города ");
+            System.out.println("\nВведите связанные города ");
+            System.out.print("Введите название первого города ");
             String city_path_1 = scanner.nextLine().trim();
-            System.out.println("Введите название второго города ");
+            System.out.print("Введите название второго города ");
             String city_path_2 = scanner.nextLine().trim();
             City b = new City(city_path_1);
             City c = new City(city_path_2);
             List<Path> name2_Paths = new ArrayList<>();
             System.out.print("\nВведите стоимость дороги к первому городу: ");
             while (!scanner.hasNextInt()) {
-                System.out.println("Это не целое число!");
+                System.out.print("Это не целое число! Повторите: ");
                 scanner.next();
             }
             int cost1 = scanner.nextInt();
+            scanner.nextLine();
             name2_Paths.add(new Path(b, cost1));
-            System.out.print("\nВведите стоимость дороги к второму городу: ");
+            System.out.print("\nВведите стоимость дороги ко второму городу: ");
             while (!scanner.hasNextInt()) {
-                System.out.println("Это не целое число!");
+                System.out.print("Это не целое число! Повторите: ");
                 scanner.next();
             }
             int cost2 = scanner.nextInt();
+            scanner.nextLine();
             name2_Paths.add(new Path(c, cost2));
             City a = new City(name2, name2_Paths);
-            System.out.println("Город, созданный с именем и набором связей и стоимостей " + a);
+            System.out.println("\nГород, созданный с именем и набором связей и стоимостей " + a);
         }
         else {
             City name_only = new City("N");
-            System.out.println("Город, созданный только с именем " + name_only);
+            System.out.println("\nГород, созданный только с именем " + name_only);
             City b = new City("B");
             City c = new City("C");
             List<Path> aPaths = new ArrayList<>();
             aPaths.add(new Path(b, 5));
             aPaths.add(new Path(c, 7));
             City a = new City("A", aPaths);
-            System.out.println("Город, созданный с именем и набором связей и стоимостей " + a);
+            System.out.println("\nГород, созданный с именем и набором связей и стоимостей " + a);
         }
     }
 
     public void runTask5_5() {
-        System.out.print("Хотите ввести вручную(1) или посмотреть готовый пример(2)? ");
-        System.out.print("\nВаш выбор: ");
+        System.out.println("Хотите ввести вручную(1) или посмотреть готовый пример(2)?");
+        System.out.print("Ваш выбор: ");
         int choice;
         while (true) {
             while (!scanner.hasNextInt()) {
@@ -427,7 +414,7 @@ public class Lab2 {
                             System.out.println("Результат: " + f1 + " / " + value + " = " + f1.division_value(value));
                         }
                     }
-                //читает catch сверху вниз и берет первый подходящий
+                    //читает catch сверху вниз и берет первый подходящий
                 } catch (IllegalArgumentException e) {
                     System.out.println("Ошибка: " + e.getMessage());// getMessage - метода во встроенном классе Throwable
                 } catch (ArithmeticException e) {
@@ -464,5 +451,3 @@ public class Lab2 {
         }
     }
 }
-
-
