@@ -1,4 +1,4 @@
-package lab2;
+package ru.plieva.people;
 
 public class Name {
     private String surname;

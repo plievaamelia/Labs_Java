@@ -1,4 +1,4 @@
-package lab1;
+package ru.plieva.main;
 
 import java.util.Locale;
 import java.util.Scanner;

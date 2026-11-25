@@ -1,4 +1,4 @@
-package lab2;
+package ru.plieva.math;
 
 public class Fraction {
     private int numerator; //числитель

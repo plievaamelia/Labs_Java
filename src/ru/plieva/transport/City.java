@@ -1,4 +1,4 @@
-package lab2;
+package ru.plieva.transport;
 
 import java.util.ArrayList;
 import java.util.List;

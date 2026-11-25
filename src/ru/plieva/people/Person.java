@@ -1,4 +1,4 @@
-package lab2;
+package ru.plieva.people;
 
 public class Person {
     private String name;
@@ -25,7 +25,7 @@ public class Person {
         this.height = height;
     }
 
-    @Override //переопределяем встроенный toString для классов Object (если бы не переопределяли, то вышло бы что то такое lab2.Person@1b6d3586)
+    @Override //переопределяем встроенный toString для классов Object (если бы не переопределяли, то вышло бы что то такое ru.plieva.people.Person@1b6d3586)
     public String toString() {
         return name + ", рост: " + height;
     }

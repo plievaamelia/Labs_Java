@@ -1,4 +1,11 @@
-package lab2;
+package ru.plieva.main;
+
+import ru.plieva.math.Fraction;
+import ru.plieva.people.Name;
+import ru.plieva.people.Person;
+import ru.plieva.people.PersonName;
+import ru.plieva.transport.City;
+import ru.plieva.transport.Path;
 
 import java.util.Locale;
 import java.util.Scanner;

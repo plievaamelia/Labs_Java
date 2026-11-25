@@ -1,4 +1,4 @@
-package lab2;
+package ru.plieva.transport;
 
 public class Path {
     private City destination;
