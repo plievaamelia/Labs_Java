@@ -588,22 +588,66 @@ public class Lab3 {
 //        class MyFraction extends Fraction_3 {}
     }
 
+
     public void runTask4_2() {
-        Fraction_3 f = new Fraction_3(3, 4);
-        System.out.println("Создана дробь: " + f);
-        System.out.println("Вызов методов класса Number, переопределенных в дроби:");
-        System.out.println("intValue() = " + f.intValue() + " (3/4 = 0 при целочисленном делении)");
-        System.out.println("longValue() = " + f.longValue());
-        System.out.println("floatValue() = " + f.floatValue());
-        System.out.println("doubleValue() = " + f.doubleValue());
-        System.out.println("Арифметика дробей работает:");
-        Fraction_3 a = new Fraction_3(1, 2);
-        Fraction_3 b = new Fraction_3(1, 3);
-        System.out.println(a + " + " + b + " = " + a.sum_fraction_3(b));
-        System.out.println();
+        System.out.println("Хотите ввести вручную(1) или посмотреть готовый пример(2)?");
+        System.out.print("Ваш выбор: ");
+        int choice;
+        while (true) {
+            while (!scanner.hasNextInt()) {
+                System.out.print("Это не целое число! Повторите: ");
+                scanner.next();
+            }
+            choice = scanner.nextInt();
+            scanner.nextLine();
+            if (choice == 1 || choice == 2) break;
+            System.out.print("Введите 1 или 2: ");
+        }
+        Fraction_3 f;
+        if (choice == 1) { //ручной ввод
+            f = null;
+            while (f == null) {
+                System.out.print("Введите числитель дроби: ");
+                while (!scanner.hasNextInt()) {
+                    System.out.print("Это не целое число! Повторите: ");
+                    scanner.next();
+                }
+                int num = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Введите знаменатель дроби: ");
+                while (!scanner.hasNextInt()) {
+                    System.out.print("Это не целое число! Повторите: ");
+                    scanner.next();
+                }
+                int den = scanner.nextInt();
+                scanner.nextLine();
+                try {
+                    f = new Fraction_3(num, den);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Ошибка: " + e.getMessage() + ". Попробуйте снова.\n");
+                }
+            }
+        } else { //готовый пример
+            f = new Fraction_3(3, 4);
+            System.out.println("\nСоздана дробь: " + f);
+            //демонстрация того, что Fraction_3 является подклассом Number
+            Number number = f;
+            System.out.println("\nВызов методов класса Number, переопределенных в дроби:");
+            System.out.println("intValue() = " + number.intValue());
+            System.out.println("longValue() = " + number.longValue());
+            System.out.println("floatValue() = " + number.floatValue());
+            System.out.println("doubleValue() = " + number.doubleValue());
+            System.out.println("\nАрифметика дробей работает:");
+            Fraction_3 a = new Fraction_3(1, 2);
+            Fraction_3 b = new Fraction_3(1, 3);
+            System.out.println(a + " + " + b + " = " + a.sum_fraction_3(b));
+            System.out.println();
+        }
     }
 
-    public void runTask5_1() {System.out.println("Хотите ввести вручную(1) или посмотреть готовый пример(2)?");
+
+    public void runTask5_1() {
+        System.out.println("Хотите ввести вручную(1) или посмотреть готовый пример(2)?");
         System.out.print("Ваш выбор: ");
         int choice;
         while (true) {
