@@ -7,7 +7,7 @@ import static java.lang.Math.pow;
 public class Power {
     public static double calculate(String strX, String strY) {
         //короткое имя parseInt вместо Integer.parseInt
-        int x = parseInt(strX);
+        int x = parseInt(strX);//parseInt преобразует строку strX в число int
         int y = parseInt(strY);
         //короткое имя pow вместо Math.pow
         return pow(x, y);
